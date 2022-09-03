@@ -20,5 +20,15 @@ public class muve : MonoBehaviour
     {
         rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag.Equals("Coin"))
+        {
+            CoinCollect.coinCount += 1;
+            Destroy(collision.gameObject);
+        }
+    }
 }
+
  
